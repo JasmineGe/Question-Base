@@ -1,0 +1,56 @@
+let dupArr = [1,2,4,3,2,4,5,6, 10, true, true, 'true', 'true', undefined, NaN, 'NaN', 'undefined']
+
+// 1) ES6 Set
+function bySet(arr) {
+    let result = new Set(arr)
+    return result
+}
+
+// 2) indexOf
+function byIndexOf(arr) {
+    let result = []
+    for (let i=0; i<arr.length; i++) {
+        if (result.indexOf(arr[i]) === -1){
+            result.push(arr[i])
+        }
+    }
+    return result
+}
+
+// 3) includes
+function byIncludes(arr) {
+    let result = []
+    for (let i=0; i<arr.length; i++) {
+        if (!result.includes(arr[i])){
+            result.push(arr[i])
+        }
+    }
+    return result
+}
+
+// 4) filter
+function byFilter(arr) {
+    return arr.filter((item, idx, arr) => {
+        return arr.indexOf(item, 0) === idx
+    })
+}
+
+// 5) reduce + includes
+function byReduce(arr) {
+    return arr.reduce((prev, cur) => prev.includes(cur) ? prev : [...prev, cur], [])
+}
+
+// 6) map
+function byMap(arr) {
+    let map = new Map(),
+        result = []
+    for (let i=0; i<arr.length; i++) {
+        if (map.has(arr[i])) {
+            map.set(arr[i], true)
+        } else {
+            map.set(arr[i], false)
+            result.push(arr[i])
+        }
+    }
+    return result
+}
