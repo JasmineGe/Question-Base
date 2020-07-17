@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>双向数据绑定</title>
+</head>
+<body>
+  <input type="text">
+  <p></p>
+</body>
+
+<script>
+  let oP = document.querySelector('p')
+  let oInput = document.querySelector('input')
+  let obj = {
+    msg: 'hello'
+  }
+  oP.innerText = obj.msg
+  oInput.value = obj.msg
+
+  // 实现视图变化，数据跟着变化
+  oInput.oninput = function() {
+    obj.msg = oInput.value
+  }
+  
+  // 实现数据变化，视图跟着变化
+  let temp = obj.msg
+  Object.defineProperty(obj, 'msg', {
+    get() {
+      return temp
+    },
+    set(value) {
+      temp = value
+      oP.innerText = temp
+      oInput.value = temp
+    }
+  })
+</script>
+</html>
