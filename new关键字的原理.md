@@ -1,5 +1,6 @@
 
-// 模拟new
+> 模拟一个new
+```
 function MockNew(Func, args) {
 
   // 1) 创建一个空对象，并将构造函数的prototype复制给空对象的_proto_
@@ -16,10 +17,11 @@ function MockNew(Func, args) {
   } else {
     return o
   }
-  
 }
+```
 
-// 构造函数
+> 构造函数
+```
 function Person(name, age) {
   this.name = name
   this.age = age
@@ -28,11 +30,16 @@ function Person(name, age) {
 Person.prototype.sayHi = function() {
   console.log('Hello, I\'m ' + this.name)
 }
+```
 
-// 使用new调用构造函数
+> 使用new调用构造函数
+```
 let Jasmine = new Person('Jasmine', 18)
 Jasmine.sayHi()
+```
 
-// 使用模拟new调用构造函数
+> 使用模拟new调用构造函数
+```
 let Dou = MockNew(Person, ['Dou', 16])
 Dou.sayHi()
+```
