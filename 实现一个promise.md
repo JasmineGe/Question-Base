@@ -13,5 +13,8 @@ Promise是异步编程的一种解决方案，简单来说就是一个容器，�
 * then()方法接受两个参数，第一个是成功时的回调，第二个是失败时的回调，同时then可以接受另一个Promise传入，也接受一个`类then`的对象或方法，即thenable对象
 
 
-### `Promise.resolve(1).then(Promise.resolve(2)).then(console.log)`输出 1 ###
+> ### `Promise.resolve(1).then(Promise.resolve(2)).then(console.log)`输出 1 ###
 >解析： 
+> * resolve()是用来表示promise的状态为fullfilled，相当于只是定义了一个有状态的Promise,但是并没有调用它；
+> * promise调用then的前提是promise的状态为fullfilled；
+> * 只有promise调用then的时候，then里面的函数才会被推入微任务中。
