@@ -4,7 +4,7 @@ FLux将一个应用分为4个部分
 > * Dispatcher（派发器）：用来接收Actions、执行回调函数
 > * Store（数据层）：用来存放应用的状态，一旦发生变动，就提醒Views要更新页面
 
-![Flux流程](http://www.ruanyifeng.com/blogimg/asset/2016/bg2016011503.png)
+![Flux工作流](http://www.ruanyifeng.com/blogimg/asset/2016/bg2016011503.png)
 
 Flux 的最大特点，就是数据的"单向流动"。
 
